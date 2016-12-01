@@ -1,0 +1,1 @@
+function tlfit=get_tlfit_mmp(drop);%function tlfit=get_tlfit_mmp(drop);%Get fitting coefficients for tl1.%7/30/01 MHAmmpfolderscruise=read_cruises_mmp(drop);fstr2=[procdata filesep cruise filesep 'tl' filesep 'tlfit' ];eval(['load ' fstr2 int2str(drop)]);	

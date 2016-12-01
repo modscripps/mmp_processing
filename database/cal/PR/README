@@ -1,0 +1,19 @@
+1. LS164234 is the first gauge used in mmp1.  It is a Lucas Schaevitz strain
+gauge Type P993-004 serial # 164234.  The calibration of 01mar94 assumes the
+manufacturer's specification of 0 to 35 bar (3.5 MPa) absolute for a linear
+voltage output of 0 to +5 volts, except we use Jack's measurement of full scale of
+5.009 volts.
+
+2. On 26 Jan 95 the gauge was calibrated with a dead-weight tester having 0.1%
+accuracy (1.2 psi) on a 1200 psi range.  The output voltage was recorded using
+MPU run on a MacIIfx.  The calibration was found be be nonlinear to about 0.5 kPa,
+so a third-order polynomial fit was used, as that was the lowest order fit
+producing random residuals.  The residuals were +/- 0.15 kPa or less.
+
+3. The original gauge in mmp3, Paros60095, was damaged by leaking water during
+tests in Lake Washington during July 1996.  For cmo96, it was replaced by
+Paros1632, an older gauge without an accompanying thermistor.  This gauge
+had been used in an earlier version of mmp1 or mmp2.
+
+4. Paros62954 was put in mmp3 for the Lake Washington tests on March 19, 1997.
+The first drop was 4187.

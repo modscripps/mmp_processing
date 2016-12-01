@@ -1,0 +1,14 @@
+firstdrop lastdrop sensorid electronicsid filter fc scanpos
+1 74 [] [] [] [] row21st3bytes
+75 105 1412 [] [] [] row21st3bytes
+106 106 1411 [] [] [] row21st3bytes
+107 111 [] [] [] [] row2col1st3bytes
+112 294 1411 [] [] [] row21st3bytes
+295 302 [] [] [] [] row21st3bytes
+303 306 [] [] [] [] row21st3bytes
+307 323 1411 [] [] [] row21st3bytes
+324 374 1412 [] [] [] row21st3bytes
+375 379 1412 [] [] [] row21st3bytes
+380 381 [] [] [] [] row21st3bytes
+382 393 1412 [] [] [] row21st3bytes
+394 100000 1411 [] [] [] row21st3bytes

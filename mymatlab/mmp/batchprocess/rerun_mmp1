@@ -1,0 +1,604 @@
+pwd
+
+ans =
+
+D:\mymatlab\mmp\batchprocess
+
+droplist=[13911:13930 13949:13960 13972:13983 14003:14019];
+save droplist droplist
+batchprocess4BS03_mmp
+Processing drop=13911
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13911 in config\mmp1\dox
+Processing drop=13912
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13912 in config\mmp1\dox
+Processing drop=13913
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13913 in config\mmp1\dox
+Processing drop=13914
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13914 in config\mmp1\dox
+Processing drop=13915
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13915 in config\mmp1\dox
+Processing drop=13916
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13916 in config\mmp1\dox
+Processing drop=13917
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13917 in config\mmp1\dox
+Processing drop=13918
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13918 in config\mmp1\dox
+Processing drop=13919
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13919 in config\mmp1\dox
+Processing drop=13920
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13920 in config\mmp1\dox
+Processing drop=13921
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13921 in config\mmp1\dox
+Processing drop=13922
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13922 in config\mmp1\dox
+Processing drop=13923
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13923 in config\mmp1\dox
+Processing drop=13924
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13924 in config\mmp1\dox
+Processing drop=13925
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13925 in config\mmp1\dox
+Processing drop=13926
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13926 in config\mmp1\dox
+Processing drop=13927
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13927 in config\mmp1\dox
+Processing drop=13928
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13928 in config\mmp1\dox
+Processing drop=13929
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13929 in config\mmp1\dox
+Processing drop=13930
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13930 in config\mmp1\dox
+Processing drop=13949
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13949 in config\mmp1\dox
+Processing drop=13950
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13950 in config\mmp1\dox
+Processing drop=13951
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13951 in config\mmp1\dox
+Processing drop=13952
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13952 in config\mmp1\dox
+Processing drop=13953
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13953 in config\mmp1\dox
+Processing drop=13954
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13954 in config\mmp1\dox
+Processing drop=13955
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13955 in config\mmp1\dox
+Processing drop=13956
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13956 in config\mmp1\dox
+Processing drop=13957
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13957 in config\mmp1\dox
+Processing drop=13958
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13958 in config\mmp1\dox
+Processing drop=13959
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13959 in config\mmp1\dox
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=13960
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13960 in config\mmp1\dox
+Processing drop=13972
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13972 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13972
+Processing drop=13973
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13973 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13973
+Processing drop=13974
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13974 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13974
+Processing drop=13975
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13975 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13975
+Processing drop=13976
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13976 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13976
+Processing drop=13977
+       by mmp1
+??? Error using ==> fread
+Invalid fid.
+
+Error in ==> D:\mymatlab\mmp\calibration\read\read_rawdata_mmp.m
+On line 50  ==>      rawdata=fread(fid,[3 inf], 'uint8');
+
+Error in ==> D:\mymatlab\mmp\calibration\batchprocess\tsbe1_mmp.m
+On line 31  ==> dataC=read_rawdata_mmp('tsbe',drop);
+
+Error in ==> D:\mymatlab\mmp\batchprocess\calc_thetasd2G_mmp.m
+On line 47  ==>       eval(str);
+
+Error in ==> D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m
+On line 114  ==>    calc_thetasd2G_mmp
+
+droplist=[13977:13983 14003:14019 14035:14044 14060:14067];
+save droplist droplist
+batchprocess4BS03_mmp
+Processing drop=13977
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13977 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13977
+Processing drop=13978
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13978 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13978
+Processing drop=13979
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13979 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13979
+Processing drop=13980
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13980 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13980
+Processing drop=13981
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13981 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13981
+Processing drop=13982
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13982 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13982
+Processing drop=13983
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 13983 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 13983
+Processing drop=14003
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14003 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14003
+Processing drop=14004
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14004 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14004
+Processing drop=14005
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14005 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14005
+Processing drop=14006
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14006 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14006
+Processing drop=14007
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14007 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14007
+Processing drop=14008
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14008 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14008
+Processing drop=14009
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14009 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14009
+Processing drop=14010
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14010 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14010
+Processing drop=14011
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14011 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14011
+Processing drop=14012
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14012 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14012
+Processing drop=14013
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14013 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14013
+Processing drop=14014
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14014 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14014
+Processing drop=14015
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14015 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14015
+Processing drop=14016
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14016 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14016
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14017
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14017 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14017
+Processing drop=14018
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14018 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14018
+Processing drop=14019
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14019 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14019
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14035
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14035 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14035
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+??? Error using ==> print
+Error using ==> C:\MATLABR12\toolbox\matlab\graphics\private\name
+Cannot create output file 'D:\mmp\BS03\figs\pdf\14035_PL1.pdf'
+
+
+
+Error in ==> D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m
+On line 185  ==>       print('-dpdf', fullfile(procdata,cruise,'figs','pdf',[num2str(drop) '_PL1.pdf']));
+
+pwd
+
+ans =
+
+D:\mymatlab\mmp\batchprocess
+
+clear
+cd ../testing
+ls
+
+.                              fmax.mat                       
+..                             make_badvxvy_sc99.m            
+DisplayChiSpec_mmp.m           mmp_atsea_testing.m            
+DisplayEpsSpec_mmp.m           plot_acceleration.m            
+Dox_lag_est.m                  plot_cnv1v2_mmp.m              
+FindSpikes1018.mat             plot_eps_spectra.m             
+FindSpikes1020.mat             plot_mmp_spike.m               
+FindSpikes1022.mat             plot_mmp_spike_vssampno.m      
+FindSpikes1024.mat             plot_tsbe_tl1.m                
+FindSpikes1025.mat             plot_vac.m                     
+FindSpikes1026.mat             plot_vatlthp_spike.m           
+MMP6                           pr_freq_mmp.m                  
+Oahu_tides.m                   sh_inertial.m                  
+Save_feb02_Tdata.m             tc_cohere_mmp.m                
+a1a2v1v2spec_mmp.m             test.m                         
+a1a2v1v2spec_mmp_SAV.m         test_eps_wind.m                
+acmspec_mmp.m                  th1th2_spec_mmp.m              
+af_compare_mmp.m               th1tl1_spec_mmp.m              
+af_spec1_mmp.m                 thcgv1v2spec_mmp.m             
+batterylife_mmp.m              ththv1v2spec_mmp.m             
+calc_pres_revs.m               tlth12spec_mmp.m               
+check_analog1_mmp.m            tlthv1v2spec_mmp.m             
+check_analog2_mmp.m            tlthv1v2spec_mmp_time.m        
+check_analog_mmp3.m            tltlv1v2spec_mmp.m             
+check_digital1_mmp.m           tsbe14077.mat                  
+compare_chans.m                tsbe14078.mat                  
+compare_ts2.m                  tsbe_freq_mmp.m                
+csbe_freq_mmp.m                v1_spec1.m                     
+cum_diss_shear.m               v2_spec1.m                     
+donow2.m                       va_spec_mmp.m                  
+doxV14077.mat                  vac_compare.m                  
+doxV14078.mat                  vac_lf_compare.m               
+doxV14095.mat                  vac_spec.m                     
+doxV14096.mat                  vacmv1spec_mmp.m               
+fill_epsilon_array.m           volt_spec_mmp.m                
+fill_shear_array.m             vspec_fmax_mmp.m               
+fill_shear_array2.m            vspec_mmp.m                    
+find_a1a2_spike.m              
+find_a1a2v1v2_spikes_bytime.m  
+
+close
+Dox_lag_est
+Dox_lag_est
+Dox_lag_est
+figure
+Dox_lag_est
+figure
+Dox_lag_est
+Dox_lag_est
+Dox_lag_est
+90/25
+
+ans =
+
+          3.6
+
+110/25
+
+ans =
+
+          4.4
+
+close all
+cd ../batchprocess
+droplist=[14035:14097];
+save droplist droplist
+batchprocess4BS03_mmp
+Processing drop=14035
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14035 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14035
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14036
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14036 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14036
+Processing drop=14037
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14037 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14037
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14038
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14038 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14038
+Processing drop=14039
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14039 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14039
+Processing drop=14040
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14040 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14040
+Processing drop=14041
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14041 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14041
+Processing drop=14042
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14042 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14042
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14043
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14043 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14043
+Processing drop=14044
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14044 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14044
+Processing drop=14045
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14045 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14045
+Processing drop=14046
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14046 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14046
+Processing drop=14047
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14047 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14047
+Processing drop=14048
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14048 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14048
+Processing drop=14049
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14049 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14049
+Processing drop=14050
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14050 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14050
+Processing drop=14051
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14051 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14051
+Processing drop=14052
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14052 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14052
+Processing drop=14053
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14053 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14053
+Processing drop=14054
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14054 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14054
+Processing drop=14055
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14055 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14055
+Processing drop=14056
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14056 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14056
+Processing drop=14057
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14057 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14057
+Processing drop=14058
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14058 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14058
+Processing drop=14059
+       by mmp2
+  calc_dox1G_mmp: no scanpos for drop 14059 in config\mmp2\dox
+Altimeter OFF or disabled for MMP drop 14059
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14060
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14060 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14060
+Processing drop=14061
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14061 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14061
+Processing drop=14062
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14062 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14062
+Processing drop=14063
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14063 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14063
+Processing drop=14064
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14064 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14064
+Processing drop=14065
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14065 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14065
+Processing drop=14066
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14066 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14066
+Processing drop=14067
+       by mmp1
+  calc_dox1G_mmp: no scanpos for drop 14067 in config\mmp1\dox
+Altimeter OFF or disabled for MMP drop 14067
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14068
+       by mmp1
+Warning: hofp2G: 14068 has empty iac or size(p)~=size(ac)
+> In D:\mymatlab\mmp\batchprocess\get_hofp2G_mmp.m at line 93
+  In D:\mymatlab\mmp\batchprocess\calc_hofp3G_mmp.m at line 32
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 122
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14069
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14070
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14071
+       by mmp1
+Warning: hofp2G: 14071 has too few altim values
+> In D:\mymatlab\mmp\batchprocess\get_hofp2G_mmp.m at line 114
+  In D:\mymatlab\mmp\batchprocess\calc_hofp3G_mmp.m at line 32
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 122
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14072
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14073
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14074
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14075
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14076
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14077
+       by mmp1
+Warning: hofp2G: 14077 has empty iac or size(p)~=size(ac)
+> In D:\mymatlab\mmp\batchprocess\get_hofp2G_mmp.m at line 93
+  In D:\mymatlab\mmp\batchprocess\calc_hofp3G_mmp.m at line 32
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 122
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14078
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14079
+       by mmp1
+Warning: hofp2G: 14079 has too few altim values
+> In D:\mymatlab\mmp\batchprocess\get_hofp2G_mmp.m at line 114
+  In D:\mymatlab\mmp\batchprocess\calc_hofp3G_mmp.m at line 32
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 122
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14080
+       by mmp1
+Warning: hofp2G: 14080 has empty iac or size(p)~=size(ac)
+> In D:\mymatlab\mmp\batchprocess\get_hofp2G_mmp.m at line 93
+  In D:\mymatlab\mmp\batchprocess\calc_hofp3G_mmp.m at line 32
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 122
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14081
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14082
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14083
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14084
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14085
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14086
+       by mmp1
+  calc_tl2_mmp: no tl1 or tl2 sensors
+Processing drop=14087
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14087 in config\mmp2\obs
+Processing drop=14088
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14088 in config\mmp2\obs
+Processing drop=14089
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14089 in config\mmp2\obs
+Processing drop=14090
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14090 in config\mmp2\obs
+Processing drop=14091
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14091 in config\mmp2\obs
+Processing drop=14092
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14092 in config\mmp2\obs
+Processing drop=14093
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14093 in config\mmp2\obs
+Processing drop=14094
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14094 in config\mmp2\obs
+Processing drop=14095
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14095 in config\mmp2\obs
+Processing drop=14096
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14096 in config\mmp2\obs
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+> In D:\mymatlab\mmp\batchprocess\mainplot1_mmp.m at line 98
+  In D:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp.m at line 181
+Processing drop=14097
+       by mmp2
+  calc_obs1_mmp: no scanpos for drop 14097 in config\mmp2\obs
+diary off

@@ -1,0 +1,25 @@
+1. Pressure sensor LS164234 is a Lucas Schaevitz strain gauge type P993-0004,
+   serial number 164234.
+
+2. The first arrangement of external sensors has tsbe in sensorport 1, 
+csbe in sensorport2, th1 in case t1 in sensorport3, v2 in case af1 in sensorport4,
+th2 in case t2 in sensorport5, and v1 in case af1 in sensorport6.  
+
+3. The first arrangement of the data scan connects Sensorport1 to the 1st 3 bytes 
+of row 2, sensorport2 to the first 3 bytes of row 3, sensorport3 in column4, 
+sensorport4 in column 7, sensorport 5 in column 5, and sensorport6 in column 6.
+
+4. Starting with Lake Washington tests in Feb96 (mmp drop 2131), 
+	a. A ParoScientific pressure gauge replaced the strain gauge.  It is sampled 
+	   at 25 Hz, and the data are in the first three bytes of row 4 in a data 
+	   scan.  mmp1 has gauge serial number 60094.
+	   
+	b. Temperature at the new pressure gauge was also added.  It is sampled at
+		25 Hz, and the data are in row6col1.
+		
+	c.	An optical backscatterance sensor was added so it can be interchanged
+		th2, i.e. it is installed in data port 5 and the data appear in column
+		5 of the data scan.
+		
+	d.	The altimeter circuitry was changed to allow ping rates of 1.25, 2.5, and
+		5 Hz.

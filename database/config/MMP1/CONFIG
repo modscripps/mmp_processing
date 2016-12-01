@@ -1,0 +1,5 @@
+firstdrop lastdrop scanid voffsetid
+1 2130 byteoffset1 voffset1
+2131 2261 byteoffset1 voffset2
+2262 4166 byteoffset1 voffset2
+4167 100000 byteoffset1 voffset3

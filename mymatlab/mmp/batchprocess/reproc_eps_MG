@@ -1,0 +1,299 @@
+droplist=13961:14067;
+save droplist droplist
+ls ba*
+
+batchprocess4BS03_eps12.m      batchprocess4epic01_mmp.m      
+batchprocess4BS03_mmp.m        batchprocess4feb02_mmp.m       
+batchprocess4BS03_mmp_eps.asv  batchprocess4ps03_mmp.m        
+batchprocess4BS03_mmp_eps.m    batchprocess4sc99_mmp.m        
+batchprocess4G_mmp.m           batchprocessBS03_mmp_wREV.m    
+batchprocess4ML04_mmp.m        
+batchprocess4dec02_mmp.m       
+
+batchprocess4BS03_mmp_eps
+Processing drop=13961
+       by mmp2
+??? Error: File: C:\mymatlab\mmp\calibration\batchprocess\salinity2_mmp.m Line: 30 Column: 3
+A BREAK statement appeared outside of a loop. Use RETURN instead.
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\calc_thetasd2G_mmp.m,83,1">calc_thetasd2G_mmp at 83</a>
+      [pr_thetasd,temp,salinity]=salinity2_mmp(drop);
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp_eps.m,114,1">batchprocess4BS03_mmp_eps at 114</a>
+   calc_thetasd2G_mmp
+
+clear
+droplist=13961:14067;
+save droplist droplist
+batchprocess4BS03_mmp_eps
+Processing drop=13961
+       by mmp2
+??? Error: File: C:\mymatlab\toolbox\utilities\find_data_blocks.m Line: 17 Column: 3
+A BREAK statement appeared outside of a loop. Use RETURN instead.
+
+Error in ==> <a href="error:C:\mymatlab\mmp\calibration\batchprocess\salinity2_mmp.m,120,1">salinity2_mmp at 120</a>
+tsbe_blocks=find_data_blocks(tsbe,3*FORDER); % returns 2 col matrix
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\calc_thetasd2G_mmp.m,83,1">calc_thetasd2G_mmp at 83</a>
+      [pr_thetasd,temp,salinity]=salinity2_mmp(drop);
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp_eps.m,114,1">batchprocess4BS03_mmp_eps at 114</a>
+   calc_thetasd2G_mmp
+
+edit find_data_blocks
+fschange('C:\mymatlab\toolbox\utilities\find_data_blocks.m');
+clear find_data_blocks
+clear
+droplist=13961:14067;
+save droplist droplist
+batchprocess4BS03_mmp_eps
+Processing drop=13961
+       by mmp2
+Warning: Function call dmx invokes inexact match C:\mymatlab\toolbox\generalprocessing\DMX.DLL.
+
+> In <a href="error:C:\mymatlab\mmp\calibration\read\read_rawdata_mmp.m,40,1">read_rawdata_mmp at 40</a>
+  In <a href="error:C:\mymatlab\mmp\batchprocess\calc_eps3G_mmp.m,89,1">calc_eps3G_mmp at 89</a>
+  In <a href="error:C:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp_eps.m,175,1">batchprocess4BS03_mmp_eps at 175</a>
+??? Undefined function or variable "G".
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\calc_eps3G_mmp.m,117,1">calc_eps3G_mmp at 117</a>
+		        htotal=(Sv*speed/(2*G))^2 * h_freq .* haf_oakey(f,speed);
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp_eps.m,175,1">batchprocess4BS03_mmp_eps at 175</a>
+   calc_eps3G_mmp
+
+clear
+droplist=13961:14067;
+save droplist droplist
+batchprocess4BS03_mmp_eps
+Processing drop=13961
+       by mmp2
+clear all
+return
+??? Reference to a cleared variable Sv.
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\calc_eps3G_mmp.m,117,1">calc_eps3G_mmp at 117</a>
+		        htotal=(Sv*speed/(2*G))^2 * h_freq .* haf_oakey(f,speed);
+
+Error in ==> <a href="error:C:\mymatlab\mmp\batchprocess\batchprocess4BS03_mmp_eps.m,175,1">batchprocess4BS03_mmp_eps at 175</a>
+   calc_eps3G_mmp
+
+clear
+droplist=13961:14067;
+save droplist droplist
+batchprocess4BS03_mmp_eps
+Processing drop=13961
+       by mmp2
+Processing drop=13962
+       by mmp2
+Processing drop=13963
+       by mmp2
+Processing drop=13964
+       by mmp2
+Processing drop=13965
+       by mmp2
+Processing drop=13966
+       by mmp2
+Processing drop=13967
+       by mmp2
+Processing drop=13968
+       by mmp2
+Processing drop=13969
+       by mmp2
+Processing drop=13970
+       by mmp2
+Processing drop=13971
+       by mmp2
+Processing drop=13972
+       by mmp1
+Processing drop=13973
+       by mmp1
+Processing drop=13974
+       by mmp1
+Processing drop=13975
+       by mmp1
+Processing drop=13976
+       by mmp1
+Processing drop=13977
+       by mmp1
+Processing drop=13978
+       by mmp1
+Processing drop=13979
+       by mmp1
+Processing drop=13980
+       by mmp1
+Processing drop=13981
+       by mmp1
+Processing drop=13982
+       by mmp1
+Processing drop=13983
+       by mmp1
+Processing drop=13984
+       by mmp2
+Processing drop=13985
+       by mmp2
+Processing drop=13986
+       by mmp2
+Processing drop=13987
+       by mmp2
+Processing drop=13988
+       by mmp2
+Processing drop=13989
+       by mmp2
+Processing drop=13990
+       by mmp2
+Processing drop=13991
+       by mmp2
+Processing drop=13992
+       by mmp2
+Processing drop=13993
+       by mmp2
+Processing drop=13994
+       by mmp2
+Processing drop=13995
+       by mmp2
+Processing drop=13996
+       by mmp2
+Processing drop=13997
+       by mmp2
+Processing drop=13998
+       by mmp2
+Processing drop=13999
+       by mmp2
+Processing drop=14000
+       by mmp2
+Processing drop=14001
+       by mmp2
+Processing drop=14002
+       by mmp2
+Processing drop=14003
+       by mmp1
+Processing drop=14004
+       by mmp1
+Processing drop=14005
+       by mmp1
+Processing drop=14006
+       by mmp1
+Processing drop=14007
+       by mmp1
+Processing drop=14008
+       by mmp1
+Processing drop=14009
+       by mmp1
+Processing drop=14010
+       by mmp1
+Processing drop=14011
+       by mmp1
+Processing drop=14012
+       by mmp1
+Processing drop=14013
+       by mmp1
+Processing drop=14014
+       by mmp1
+Processing drop=14015
+       by mmp1
+Processing drop=14016
+       by mmp1
+Processing drop=14017
+       by mmp1
+Processing drop=14018
+       by mmp1
+Processing drop=14019
+       by mmp1
+Processing drop=14020
+       by mmp2
+Processing drop=14021
+       by mmp2
+Processing drop=14022
+       by mmp2
+Processing drop=14023
+       by mmp2
+Processing drop=14024
+       by mmp2
+Processing drop=14025
+       by mmp2
+Processing drop=14026
+       by mmp2
+Processing drop=14027
+       by mmp2
+Processing drop=14028
+       by mmp2
+Processing drop=14029
+       by mmp2
+Processing drop=14030
+       by mmp2
+Processing drop=14031
+       by mmp2
+Processing drop=14032
+       by mmp2
+Processing drop=14033
+       by mmp2
+Processing drop=14034
+       by mmp2
+Processing drop=14035
+       by mmp1
+Processing drop=14036
+       by mmp1
+Processing drop=14037
+       by mmp1
+Processing drop=14038
+       by mmp1
+Processing drop=14039
+       by mmp1
+Processing drop=14040
+       by mmp1
+Processing drop=14041
+       by mmp1
+Processing drop=14042
+       by mmp1
+Processing drop=14043
+       by mmp1
+Processing drop=14044
+       by mmp1
+Processing drop=14045
+       by mmp2
+Processing drop=14046
+       by mmp2
+Processing drop=14047
+       by mmp2
+Processing drop=14048
+       by mmp2
+Processing drop=14049
+       by mmp2
+Processing drop=14050
+       by mmp2
+Processing drop=14051
+       by mmp2
+Processing drop=14052
+       by mmp2
+Processing drop=14053
+       by mmp2
+Processing drop=14054
+       by mmp2
+Processing drop=14055
+       by mmp2
+Processing drop=14056
+       by mmp2
+Processing drop=14057
+       by mmp2
+Processing drop=14058
+       by mmp2
+Processing drop=14059
+       by mmp2
+Processing drop=14060
+       by mmp1
+Processing drop=14061
+       by mmp1
+Processing drop=14062
+       by mmp1
+Processing drop=14063
+       by mmp1
+Processing drop=14064
+       by mmp1
+Processing drop=14065
+       by mmp1
+Processing drop=14066
+       by mmp1
+Processing drop=14067
+       by mmp1
+diary off

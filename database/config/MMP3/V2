@@ -1,0 +1,11 @@
+firstdrop lastdrop sensorid electronicsid filter fc scanpos
+2270 4166 314 af6_1 cheby6 150 col7
+4167 4194 284 af6_1 cheby6 150 col7
+4200 6511 274 af6_1 cheby6 150 col7
+6675 6679 152 af6_1 cheby6 150 col7
+7600 7670 180 af6_1 cheby6 150 col7
+7742 11364 287 af6_1 cheby6 100 col7
+11365 11393 280 af6_1 cheby6 100 col7
+11400 12043 287 af6_1 cheby6 100 col7
+12134 12212 214 af6_1 cheby6 100 col7
+12304 20000 315 af6_1 cheby6 100 col7

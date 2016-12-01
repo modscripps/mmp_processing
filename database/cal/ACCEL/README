@@ -1,0 +1,22 @@
+   This directory contains 1) configuration files for accelerometer data channels, 2) parameter files for accelerometer electronics, and 3) calibration coefficients for the accelerometers.
+
+CONFIGURATION FILES
+   These file have names like "a1_mmp1_config" and contain lines with: the first and last drop numbers for a configuration, the channel parameter file to use, and
+the calibration file to use.  Initially, at least, we do not expect changes in either
+the electronics or the calibrations and each file has only one line.  The structure,
+however, can accomodate changes.  As an example, a1_mmp1_config contains the following line
+     1 100000 a1_mmp1_01mar94 ks_3c13042_16sep92
+
+PARAMETER FILES
+   As of December 1994, the circuit parameters are simply the gains of linear
+circuits applied to the accelerometer outputs.  Parameter files are labeled
+with the data channel and the date of their first application.  As an example,
+a1_mmp1_01mar94 contains  the following line
+   1 100000 100
+
+indicating that Gac=100 is to be used for drops 1 to 100,000.
+
+CALIBRATION FILES
+		There is one file per calibration per sensor.  For instance, ks_3c13042 and ks_3c13050 are model 3140-002 units made by KSsensors of Milpitas, CA and have serial numbers 3c13042 and 3c13050.  The calibrations are outputs in volts per g at 100 Hz.  As an example, ks_3c13042_16sep92 contains the following line
+   1.011
+

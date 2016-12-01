@@ -1,0 +1,27 @@
+mmp1
+====
+(tl2)12306 100000 122 t2-1 bessel4 100 col3
+(th2)12306 100000 122 t2_1 bessel4 100 col5
+(obs)12306 100000 [] 1 bessel4 100 col5
+(tl1)12306 100000 [] t1_1 bessel4 100 col10
+(th1)12306 100000 [] t1_1 bessel4 100 col4
+(dox)12103 100000 430101 [] bessel4 100 col4
+=======
+mmp2
+====
+(tl2)12306 100000 123 t2_1 bessel4 100 col3
+(th2)12306 100000 123 t4_1 bessel4 100 col5
+(obs)12306 100000 [] 1 bessel4 100 col5
+(tl1)12306 100000 [] t3_1 bessel4 100 col10
+(th1)12306 100000 [] t3_1 bessel4 100 col4
+(dox)12199 100000 430102 [] bessel4 100 col4
+=======
+mmp3
+====
+(tl2)2270 7000 102 t6_1 bessel4 100 col3
+(th2)2262 7000 108 t6_1 bessel4 100 col5
+(obs)4167 100000 3 1 bessel4 100 col5
+(tl1)11400 20000 104 t5_1 bessel4 100 col10
+(th1)11412 20000 104 t5_1 bessel4 100 col4
+(dox)100000 100000 430102 [] bessel4 100 col4
+

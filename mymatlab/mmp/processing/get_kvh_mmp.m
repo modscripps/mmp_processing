@@ -1,0 +1,1 @@
+function hdg=get_kvh_mmp(drop);%function hdg=get_kvh_mmp(drop);%basic routine just to read the heading data from mmp3. %In degrees.%%mmpfoldersif ~strcmp(read_mmpid(drop),'mmp3')	%fill NaN's in all return variables here.	hdg=NaN;	return;	endcruise=read_cruises_mmp(drop);fstr2=[procdata FSP cruise FSP 'Kvh' FSP 'Kvh' ];eval(['load ' fstr2 int2str(drop)]);	

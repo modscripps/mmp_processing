@@ -1,0 +1,1 @@
+function dox=get_dox_mmp(drop);%function dox=get_dox_mmp(drop);%basic routine just to read the dox data from mmp..%mmpfolderscruise=read_cruises_mmp(drop);fstr2=[procdata filesep cruise filesep 'dox' filesep 'dox' ];if exist([fstr2 int2str(drop) '.mat'])==2    eval(['load ' fstr2 int2str(drop)]);else    dox=NaN;end

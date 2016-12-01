@@ -1,0 +1,7 @@
+firstdrop lastdrop sensorid electronicsid filter fc scanpos
+1 750 LS164234 1 bessel4 100 col3
+751 761 [] 1 bessel4 100 col3
+761 2098 LS164234 1 bessel4 100 col3
+2099 18903 Paros60094 1 [] [] row41st3bytes 
+18904 18924 Paros1654 1 [] [] row41st3bytes 
+18925 100000 Paros127002 1 [] [] row41st3bytes 

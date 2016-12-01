@@ -1,0 +1,17 @@
+mmpfolders
+
+path([mymatlabdisk '/mmp'],path)
+path([mymatlabdisk '/mmp/batchprocess'],path)
+path([mymatlabdisk '/mmp/calibration'],path)
+path([mymatlabdisk '/mmp/calibration/batchprocess'],path)
+path([mymatlabdisk '/mmp/calibration/read'],path)
+path([mymatlabdisk '/mmp/calibration/filters'],path)
+path([mymatlabdisk '/mmp/processing'],path)
+path([mymatlabdisk '/mmp/utilities'],path)
+path([mymatlabdisk '/mmp/testing'],path)
+path([mymatlabdisk '/toolbox/utilities'],path)
+path([mymatlabdisk '/toolbox/seawater2'],path)
+path([mymatlabdisk '/toolbox/seawater'],path)
+path([mymatlabdisk '/toolbox/generaltrf'],path)
+path([mymatlabdisk '/toolbox/generalprocessing'],path)
+path([mymatlabdisk '/toolbox/generalplotting'],path)

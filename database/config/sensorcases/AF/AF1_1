@@ -1,0 +1,29 @@
+af1_1.m
+% af1_1.m
+%   Function: execute to load electronics configuration 1 of sensorcase af1
+
+% circuit components
+RC1=1.0e6;
+RC2=3.01e3;
+RC3=1.0e7;
+CCF=1.0e-9;
+RD1=2.37e3;
+CD1=3.3e-7;
+RDF=4.75e5;
+CDF=8.2e-10;
+RG1=1.21e4;
+RGF=3.74e4;
+RCS=1.0e5;
+
+% calculated circuit parameters for charge amplifier circuit
+Rf=RC1*RC3/RC2;
+fL=1/(2*pi*Rf*CCF);
+fH=1/(2*pi*RCS*CS);
+
+% calculated circuit parameters for differentiator circuit
+K=1/(2*pi*RD1*CDF);
+f1=1/(2*pi*RD1*CD1);
+f2=1/(2*pi*RDF*CDF);
+
+% calculated circuit parameters for gain circuit
+Hsq_gain=(1 + RGF/RG1)^2;

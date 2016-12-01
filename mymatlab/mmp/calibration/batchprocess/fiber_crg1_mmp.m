@@ -1,0 +1,1 @@
+function crg=fiber_crg1_mmp(drop)% Usage: crg=fiber_crg1_mmp(drop);%  inputs:%    drop: integer drop number% Function: to convert data from counts to coupling ratio gradient.%MHA, 7/01.% Read raw data and convert from counts to voltsch='crg';crg_raw=read_rawdata_mmp(ch,drop);crg_raw=atod1_mmp(crg_raw);crg=crg_raw;

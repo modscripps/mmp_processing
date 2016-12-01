@@ -1,0 +1,9 @@
+firstdrop lastdrop angle sensorid filter fc scanpos
+2160 11380 6.5 14 [] 0.5 row5col1
+11381 11381 6.5 13 [] 0.5 row5col1
+11382 11383 6.5 14 [] 0.5 row5col1
+11384 12000 6.5 12 [] 0.5 row5col1
+13900 13960 6.5 12 [] 0.5 row5col1
+13961 14067 6.5 [] [] 0.5 row5col1
+14068 14309 6.5 12 [] 0.5 row5col1
+14310 99999 6.5 25 [] 0.5 row5col1
