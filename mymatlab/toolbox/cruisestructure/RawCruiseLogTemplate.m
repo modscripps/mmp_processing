@@ -1,0 +1,9 @@
+i_gr=;
+cr.data(i_dat).group(i_gr).name = '';
+cr.data(i_dat).group(i_gr).year = year;
+cr.data(i_dat).group(i_gr).type = '';
+cr.data(i_dat).group(i_gr).waypt.name = '';
+cr.data(i_dat).group(i_gr).unit = 'leg';
+cr.data(i_dat).group(i_gr).tag = [];
+cr.data(i_dat).group(i_gr).subunit = 'yday';
+cr.data(i_dat).group(i_gr).sub(1).tag = [];

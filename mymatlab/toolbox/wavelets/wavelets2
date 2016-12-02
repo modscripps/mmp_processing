@@ -1,0 +1,187 @@
+/*
+ * FILE: modwt.c
+ *      This program ...
+ *
+ *      To compile:
+ *
+ *  % cmex modwtfast.c -I/opt/matlab/extern/include -L/opt/matlab/extern/lib/sun4 -lmat -lm
+ *
+ *      To use this function, you must set MATLABPATH to include the
+ *      directory  that  contains modwt.mexARCH, where
+ *      ARCH is `4' for SunOS or `sol' for Solaris.  
+ *
+ *--------------------------------------------------------------------
+ * Willa Zhu                           Phone:    206-526-6208
+ * NOAA/PMEL/OCRD                      FAX:      206-526-6744
+ * 7600 Sand Point Way NE              OMNET:    TAO.PMEL
+ * Seattle, WA 98115                   Internet: willa@pmel.noaa.gov
+ *--------------------------------------------------------------------
+ */
+
+#include <stdio.h>
+#include <math.h>
+#include "mex.h"
+ 
+int
+free_array(cptr)
+     char **cptr;
+{
+  if(*cptr == (char *)NULL){
+    *cptr = (char *)NULL;
+    return 0;
+  } else
+    free(*cptr);
+
+  *cptr = (char *)NULL;
+  return 1;
+}
+
+static char *
+mat2str(mat)
+Matrix  *mat;
+{
+   double *pr;
+   char   *p;
+   char   *str; 
+   int    len, i;
+
+   pr = mxGetPr(mat);
+   len =  mxGetM(mat)*mxGetN(mat);
+ 
+   str = (char *) calloc(len+1, sizeof(char));
+ 
+   p = str;
+   for (i = 0; i < len; i++)       
+      *p++ = (char) *pr++;
+   *p = '\0';
+   return(str);
+}
+
+static double *
+mat2double(mat)
+Matrix   *mat;
+{
+  double *pr;
+  double *out_double;
+  double *p;
+  int	len;
+  int	i;
+
+   pr = mxGetPr(mat);
+   len =  mxGetM(mat)*mxGetN(mat);
+	
+   out_double = (double *) calloc(len, sizeof(double));
+   p = out_double;
+	
+   for (i = 0; i < len; i++) *p++ = (double) *pr++;
+	
+   return (out_double);
+}
+
+static float *
+mat2float(mat)
+Matrix   *mat;
+{
+  double *pr;
+  float *out_float;
+  float *p;
+  int   len;
+  int   i;
+
+   pr = mxGetPr(mat);
+   len =  mxGetM(mat)*mxGetN(mat);
+        
+   out_float = (float *) calloc(len, sizeof(float));
+   p = out_float;
+        
+   for (i = 0; i < len; i++) *p++ = (float) *pr++;
+        
+   return (out_float);
+}
+ 
+static int *
+mat2int(mat)
+Matrix   *mat;
+{
+  double *pr;
+  int	 *out_int;
+  int	 *p;
+  int	len;
+  int	i;
+
+   pr = mxGetPr(mat);
+   len =  mxGetM(mat)*mxGetN(mat);
+	
+   out_int = (int *) calloc(len, sizeof(int));
+   p = out_int;
+	
+   for (i = 0; i < len; i++) *p++ = (int) *pr++;
+	
+   return (out_int);
+}
+
+#ifdef __STDC__
+void mexFunction(
+	int		nlhs,
+	Matrix	*plhs[],
+	int		nrhs,
+	Matrix	*prhs[]
+	)
+#else
+mexFunction(nlhs, plhs, nrhs, prhs)
+int nlhs, nrhs;
+Matrix *plhs[], *prhs[];
+#endif
+{
+	double *input_vec;
+	double *flter, *flter1;
+	int *order;
+	double *wavelet, *scale;
+	int i, j, ind;
+ 	int veclen, filtlen;
+
+	if(nrhs < 3) {
+           mexErrMsgTxt("require 3 input arguments.");
+	   }
+	if(nlhs < 2) {
+           mexErrMsgTxt("require 2 output arguments.");
+	   }
+
+	input_vec = mat2double(prhs[0]);
+	flter = mat2double(prhs[1]);
+	order = mat2int(prhs[2]);
+
+   	veclen =  mxGetM(prhs[0])*mxGetN(prhs[0]);   
+	filtlen = mxGetM(prhs[1])*mxGetN(prhs[1]);    
+	flter1 = (double *) malloc(sizeof(double)*filtlen);
+	for(i=0;i<filtlen;i++) {
+	  flter[filtlen-i-1] /= (double) sqrt(2.0);
+	  flter1[i] = (double) pow((double)-1.0,(double)i) * flter[filtlen-i-1];
+	  }
+
+        plhs[0] = mxCreateFull(veclen, 1, REAL);
+        wavelet = mxGetPr(plhs[0]);
+        plhs[1] = mxCreateFull(veclen, 1, REAL);
+        scale = mxGetPr(plhs[1]);
+	for(i=0; i<veclen; i++) {
+	  ind = i;
+	  wavelet[i] = input_vec[i]*flter1[0];
+	  scale[i] = input_vec[i]*flter[0];
+	  for(j = 1; j < filtlen; j++) {
+	    ind -= (int) pow((double)2.0,(double)(*order*1.0-1.0));
+	    while(ind < 0) ind += veclen;
+	    wavelet[i] += input_vec[ind]*flter1[j];
+	    scale[i] += input_vec[ind]*flter[j];
+	    }
+	  }
+ 	free_array((char **) &input_vec);
+ 	free_array((char **) &flter);
+ 	free_array((char **) &order);	    
+	free(flter1);
+	/* Assign pointers to the various parameters */
+
+	return;
+}
+
+
+

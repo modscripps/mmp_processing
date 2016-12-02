@@ -1,0 +1,34 @@
+function Wout =  sucwavecoef(Vin,g,K);
+% Usage: Wout =  sucwavecoef(Vin,g,K);
+%   inputs:
+%     Vin: original time series
+%     g: wavelet filter
+%     K: the order of decomposition
+%        for the Kth order, the resolved time scale is 2^(K)-2^(K+1)
+%        times the time interval
+%   output
+%   Wout : Wavelet Coefficients
+% Function: 
+%Mike,
+%   The following is my function to calculate wavelet coefficients.
+%   
+%    dwdtWout =   sucwaveletcoef(demean(dwdt),LA8,maxK); 
+%   
+% You need to provide the mother wavelet. They are in /j/users/lien/s/mymatlab/
+% dbpwavelet/scaling. LA 8 and D10 are the ones I often used. maxK is the
+% maximum number of timescale bands you want to use. The total number of
+% points of your time series N < 2^maxK. 
+%
+%    The function calls modwtfast. It is a C routine and will be included in
+% my next email. Please compile it in your machine.
+ 
+
+   Z = zeros(size(Vin));
+
+   for i=1:K;
+       [W,V]=modwtfast(Vin,g,i);
+       Vin = V;
+       Wout(i,:) = W(:)';
+   end
+      
+

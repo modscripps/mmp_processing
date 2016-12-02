@@ -1,0 +1,153 @@
+Styled Text Toolbox
+Version 3.1, 10 June 1996
+Copyright 1995-1996 by Douglas M. Schwarz.  All rights reserved.
+schwarz@kodak.com
+
+
+Changes in Version 3.1
+
+
+1. Bug Fixes.
+
+I fixed several bugs which could leave the screen in a messy state if an
+error was made in specifying the styled text.  Also, on some platforms there
+was the possibility of a visible extra character when italic Symbol font was
+used.  This character has a special purpose and it has been replaced with
+one that does not show up on screen.  Several other minor bugs have been
+eliminated.
+
+
+2. SLEGEND and STEXTBOX modified.
+
+Based on some user feedback, I have modified SLEGEND and STEXTBOX so that
+some of the internal parameters can be changed without modifying the
+m-files.  It is now possible to specify property/value pairs just like with
+other objects.  I have also improved the method for calculating the line
+spacing.
+
+
+3. Font metrics.
+
+The font metric information is now contained in a single text file for all
+platforms: stfm.txt.  This one file now has the character widths and
+kerning data for all of the supported PostScript fonts.  It also contains
+the three Roman font encoding vectors I know about: MacEncoding,
+WindowsLatin1Encoding (new), and ISOLatin1Encoding.  Previously, I had been
+led to believe that the encoding used by Windows was a superset of
+ISOLatin1Encoding, but I have recently learned that this is not quite the
+case.  As a result, Windows users would not have been able to use accents
+correctly.  This new encoding vector fixes this except that the accents
+\breve, \dot and \check and the \ii character (dotless i) are not included
+in the encoding and cannot be used.  If any other encoding vectors are
+discovered to be in use the new system will allow them to be added and used
+fairly easily; contact me for details.
+
+
+4. New function makestfm and new procedure for saving stfm.mat.
+
+The procedure for extracting the font metric information and encodings from
+stfm.txt is complicated enough that I put it in a separate m-file.  This
+function is called by stext the first time stext is run.  The font metrics
+are then saved in a MAT-file (stfm.mat) for quicker access in the future.
+If you don't have write permission in the stextfun directory then the file
+is saved in the current directory and a message is displayed suggesting
+that you have your system administrator move that file to the stextfun
+directory.
+
+
+
+
+Changes in Version 3.0
+
+
+1. Command Parsing.
+
+Parsing of commands is more robust and more LaTeX-like.  There are now three
+categories of commands: those with all letters (e.g., \alpha), those with
+all numbers (e.g., \12) and those consisting of a single special character
+(e.g., \+).  Commands are terminated by any character that can be determined
+not to be part of the command itself.  If the next character is in the same
+category as the command characters then a single space should be inserted as
+the termination character.  This space will not appear in the output.
+Examples:
+
+'\alpha a' will produce no space between the alpha and the a.  The space is
+necessary to terminate the \alpha command, but it gets swallowed.  Another
+way to achieve the same result is with '\alpha{}a'.
+
+'\alpha  a' will produce a single space between the alpha and the a.  The
+first space gets swallowed as above, but the second one will appear. Another
+way to get the same result is with '\alpha\ a', where the '\ ' is a standard
+space command.
+
+'\alpha1' will be parsed without error and there will be no space between
+the alpha and the 1.  Of course, this can also be done with '\alpha{}1'.
+	
+'\alpha 1' will have a single space between the alpha and the 1.
+
+'\+=' will be parsed without error and there will be no space between the
+'+' (which will be made with the Symbol font) and the '=' (in the current
+font).
+
+
+2. Commands with two arguments.
+
+Commands with two arguments have a different syntax.  Previously you would
+use '\int{a,b}' to make an integral with lower limit 'a' and upper limit
+'b'.  The new syntax is '\int{a}{b}'.  Commands affected: \int, \sum, \prod.
+
+
+3. New commands.
+
+\frac{x}{y} to make the fraction x over y
+
+\sqrt{x} to make square root of x
+
+\root{n}{x} to make nth root of x
+
+\AA to make angstrom symbol ('A' with little circle above it)
+
+\ii to make a dotless 'i'
+
+\pushx will push the current x-position onto a stack
+
+\popx will pop the stack so the next character position will revert to a
+    previous location
+
+\swapx will swap the top two stack items
+
+ASCII codes can be inserted with the \# command, e.g., 'a\#{65}b' is
+identical to 'a{}Ab' since the ASCII code for 'A' is 65 (decimal).
+
+'\/'  italic correction
+'\,'  thin space
+'\:'  medium space
+'\;'  thick space
+'\ '  word space
+
+
+4. New functions.
+
+slegend      - Styled text legends.
+stextbox     - Styled text multi-line box.
+stfixps      - Modifies PS files to simulate Symbol-Oblique font.
+spreview     - GUI application to help build styled text objects.
+
+
+5. Font metrics.
+
+The font metric information is now distributed as text files eliminating the
+need to download them in binary mode.  The first time stext is run they are
+loaded in and then saved as MAT-files for quicker access in the future.
+
+
+6. Rotation.
+
+Rotation of styled text is no longer restricted to integral multiples of 90
+degrees.
+
+
+7. Printing
+
+The printsto function has been upgraded to handle axes with a fixed aspect
+ratio (such as result from "axis square").

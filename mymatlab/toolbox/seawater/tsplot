@@ -1,0 +1,28 @@
+function tsplot(s,t) 
+%tsplot: tsplot(s,t) - plots profiles as ts diag. with sigt contours
+%      TSPLOT                12-29-93               Ren-Chieh Lien
+%
+%      T-S plot with isopycnal contour lines
+%
+%                function tsplot(t,s); 
+%
+%       ex. tsplot(temperature,salinity); salinity is in cu. e.g. 0.034
+%                                         temperature is in degree C  
+%
+%------------------------------------------------------------------------------
+     [mint,maxt]=myminmax(col(t));
+     [mins,maxs]=myminmax(col(s));
+     if (mins >= 1); 
+        s = s*0.001; 
+        [mins,maxs]=myminmax(col(s));
+     end
+     mins
+     T = (mint -1):0.1:(maxt +1);
+     S = (mins - 0.0001):0.0001: (maxs + 0.0001);
+     min(S)
+     for i = 1:length(T);
+         rho(i,:) = density(S,T(i)*ones(1,length(S)),0);
+     end
+     clg; hold off
+     size(rho)
+     contour(S,T,rho); hold on; axis('square'); plot(s,t,'o')

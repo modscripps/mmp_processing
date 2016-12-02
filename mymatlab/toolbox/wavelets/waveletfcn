@@ -1,0 +1,130 @@
+From lien@hertz.apl.washington.edu Thu Dec 19 12:20 PST 1996
+Return-Path: <lien@hertz.apl.washington.edu>
+Received: from triton.apl.washington.edu by nereid.apl.washington.edu (SMI-8.6/SMI-SVR4)
+	id MAA04315; Thu, 19 Dec 1996 12:20:52 -0800
+Received: from apl.washington.edu (hope.apl.washington.edu) by triton.apl.washington.edu (5.0/SMI-SVR4)
+	id AA09018; Thu, 19 Dec 1996 12:17:12 +0800
+Received: from hertz.apl.washington.edu by apl.washington.edu (4.1/SMI-4.1)
+	id AA22387; Thu, 19 Dec 96 12:18:19 PST
+Received: by hertz.apl.washington.edu
+	(1.37.109.16/16.2) id AA272296723; Thu, 19 Dec 1996 12:18:43 -0800
+Message-Id: <9612192018.AA22387@apl.washington.edu>
+From: Ren-Chieh Lien <lien@hertz.apl.washington.edu>
+Subject: modwt.m and inv_modwt.m
+To: gregg@apl.washington.edu
+Date: Thu, 19 Dec 1996 12:18:42 PST
+X-Mailer: Elm [revision: 109.14]
+Content-Type: text
+Content-Length: 2322
+X-Lines: 108
+Status: RO
+
+Mike,
+  The following are the functions modwt.m and inv_modwt.m written
+by a student in Don's class using his algorithm. I am not sure that I 
+have successfully vectorize the program. Even if I did, it didn't improve
+much. That is why I ask Willa to write a C for me. Good luck! BTW, I remember
+that variables used in the two programs are exactly copy of those in Don's
+flow chart.
+
+Ren-Chieh
+
+
+function [Wout,Vout]=modwt(Vin,g,K)
+%
+% function [Wout,Vout]=modwt(Vin,wavelet)
+% Given a wavelet scaling filter g of even length L,
+%   and a series Vin of length M,
+%   the pyramid algorithm creates two output series:
+%   {Wout:t=1:M} and {Vout:t=1:M} that represent the wavelet
+%   and the scaling coefficients respectively.
+%--------------------------------
+% Initialize variables
+%--------------------------------
+M=length(Vin);
+L=length(g);
+
+for (l=1:L)
+  h(l) = (-1)^(l-1).*g(L-l+1);
+end
+
+% rescale the filter coefficients
+
+h = h/sqrt(2);
+g = g/sqrt(2);
+
+%---------------------------------
+% Calculate Forward Transform
+%---------------------------------
+Vout=zeros(K,M);
+Wout=Vout;
+
+% calc the first K scales ...
+
+%for k=1:K
+  k = K;
+
+  for t=1:M
+    j=t;
+    Wout(k,t)=Vin(j)*h(1);
+    Vout(k,t)=Vin(j)*g(1);
+    for l=2:L
+      j=j-2^(k-1);
+      while (j<1)
+        j=j+M;
+      end;
+      Wout(k,t)=Wout(k,t)+Vin(j)*h(l);
+      Vout(k,t)=Vout(k,t)+Vin(j)*g(l);
+    end;
+  end;
+  Vin=Vout(k,1:M);
+%end
+
+
+
+
+function Xout = inv_modwt(Win,Vin,g,k)
+%
+% function [Wout,Vout]=modwt(Vin,wavelet)
+% Given a wavelet scaling filter {g[0:L-1} of length L,
+%   and wavelet and scaling coefficients {Win:t=1:M} and
+%   {Vin:t=1:M} of scale k, the pyramid algorithm creates 
+%   the output series: {Xout:t=1:M} that represents the 
+%   scaling coefficients at scale k-1.
+
+%--------------------------------
+% Initialize variables
+%--------------------------------
+N=length(Vin);
+L=length(g);
+
+for (l=1:L)        
+  h(l) = (-1)^(l-1).*g(L-l+1);
+end
+
+% rescale the filter coefficients
+  h = h/sqrt(2);
+  g = g/sqrt(2);
+
+%---------------------------------
+% Calculate Inverse Transform
+%---------------------------------
+
+  for t=1:N
+
+    j=t;
+
+    Xout(t) = h(1)*Win(j) + g(1)*Vin(j);
+
+    for l=2:L
+
+      j=j+2^(k-1);
+
+      if (j>=N+1) 
+        j=j-N; 
+      end;
+
+      Xout(t) = Xout(t) + h(l)*Win(j) + g(l)*Vin(j);
+    end
+end
+

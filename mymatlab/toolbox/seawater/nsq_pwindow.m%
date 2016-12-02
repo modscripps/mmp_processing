@@ -1,0 +1,85 @@
+function [n2,dthetadz,dsdz,p_nsq]=nsq_pwindow(s,t,p,p0);
+% nsq
+%   Usage: [n2,dthetadz,dsdz]=nsq_pwindow(s,t,p,p_nsq);
+%     inputs
+%      s is salinity (concentration units) in a column array,
+%      t is in-situ temperature (deg C) in a column array
+%      p is pressure (MPa) of t and s, also in a column array
+%      p0 is a vector of pressures at which nsq is to be computed
+%     outputs
+%      n2 is the square of the buoyancy frequency, in (rad/s)^2
+%      dthetadz is the gradient of potential temperature
+%      dsdz is the salinity gradient
+%      n_sq is a vector of pressures matching the dependent variables and may differ from p0
+%   Function: (a) low-pass filters t,s,p over dp, (b) linearly interpolates
+%      t and s onto pressures, p0, p0+dp, p0+2dp, ...., (3) computes
+%      upper and lower potential densities at p0+dp/2, p0+3dp/2,...
+%      (4) converts differences in potential density into nsq
+%      (5) returns NaNs if the filtered pressure is not monotonic.
+    
+
+G=9.80655;
+
+% delete negative presssures from input theta_sd data
+i=find(p>=0);
+p=p(i); s=s(i); t=t(i);
+
+% reverse order of upward profiles
+if p(length(p))<p(1)
+	p=flipud(p); t=flipud(t); s=flipud(s);
+end
+
+% compute pressures of upper and lower boundaries of nsq windows
+pb=pwindow(p0);
+
+% reduce the range of pb if necessary to fall within the range of p
+minp=min(p); maxp=max(p);
+i=1;
+while pb(i)<minp
+  i=i+1;
+end
+j=length(pb);
+while pb(j)>maxp
+  j=j-1;
+end
+pb=pb(i:j);
+diff_pb=diff(pb);
+
+% make corresponding adjustments to compute p_nsq from p0
+p_nsq=p0(i:j-1);
+npts=length(p_nsq);
+
+% low pass temp and salinity with a cutoff at the Nyquist wavenumber of
+% the specified p_nsq array
+dp=diff(p); % median pressure interval of t,s data
+[b,a]=butter(4,2*median(diff_pb)/median(dp));
+t=filtfilt(b,a,t);
+s=filtfilt(b,a,s);
+p=filtfilt(b,a,p);
+
+% check that p is monotonic
+i=find(dp>0);
+if length(i)==length(p)-1;
+
+	% interpolate temperature and salinity to pb
+	t=interp1(p,t,pb)';
+	s=interp1(p,s,pb)';
+
+	% compute potential density of shallower window pts at output, i.e. center, pressures
+	i_u=(1:1:length(pb)-1);
+        p_nsq=p_nsq(:)'; % convert to a row vector, required by sw_pden
+	pt_u=sw_pden(1000*s(i_u),t(i_u),100*pb(i_u),100*p_nsq);
+
+	% compute potential density of deeper window pts at output pressures
+	i_l=(2:1:length(pb));
+	pt_l=sw_pden(1000*s(i_l),t(i_l),100*pb(i_l),100*p_nsq);
+
+
+	n2=G^2*(pt_l - pt_u)./(1e6*diff_pb); % dp must be in Pascals, not MegaPascals
+	dthetadz=(potemp(s(i_u),t(i_u),pb(i_u)) - ...
+                 potemp(s(i_l),t(i_l),pb(i_l)))./(100*diff_pb);
+        dsdz=(s(i_u)-s(i_l))./(100*diff_pb);
+else
+	disp('  filtered pressure not monotonic')
+	n2=NaN; pout=NaN; dthetadz=NaN; dsdz=NaN;
+end

@@ -21,7 +21,7 @@ octave-workspace
 # Unused matlab
 \\Sproul*.mat
 \\Arctic*.mat
-/mymatlab/toolbox/*
+# /mymatlab/toolbox/*
 /mymatlab/unused/*
 
 # old file

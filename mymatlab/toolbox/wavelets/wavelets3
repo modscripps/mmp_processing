@@ -1,0 +1,21 @@
+% Mike,
+%  Here is an edited copy of my spectral estimation using wavelet. Let me
+% know if you have any questions.
+
+     dt = 5/3600;
+
+      n = length(time);
+      maxK = floor(log((max(time)-min(time))/dt)/log(2));
+      timescale = exp((1:maxK+1)*log(2))*dt;
+
+      LA8=sload('/s/users/lien/mymatlab/dbpwavelet/scaling','LA8');
+ 
+ 
+      dwdtWout =  mysucwaveletcoef(demean(dwdt),LA8,maxK);
+ 
+      for i = 1:length(timescale)-1;
+          df(i) = 2*pi*(1/timescale(i) - 1/timescale(i+1))/3600;
+          waveletff(i) = 2*pi*(1/timescale(i) + 1/timescale(i+1))/3600/2;
+          dwdtwaveletsp(i) = std(dwdtWout(i,:))^2/df(i);
+      end
+
