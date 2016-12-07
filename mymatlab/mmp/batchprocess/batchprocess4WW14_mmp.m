@@ -207,7 +207,8 @@ while more==1
       
       dstr=['  processing time = ' num2str(etime(clock,t0),3) ' seconds'];
       figure(2); hfig2=gcf; hfig2.Position=[3 68 827 737];
-      figure(1); hfig1=gcf; hfig1.Position=[86 66 885 715];  pause
+      figure(1); hfig1=gcf; hfig1.Position=[86 66 885 715];  
+%       pause(3)
 
    end
    

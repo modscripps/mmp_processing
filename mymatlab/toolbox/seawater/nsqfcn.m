@@ -20,8 +20,8 @@ function [n2,pout,dthetadz,dsdz]=nsqfcn(s,t,p,p0,dp)
 % MHA: changed 3/05 back to normal units (psu, dbar)
 
 G=9.80655;
-%dz=100*dp; %MHA change: change back to normal units
-dz=dp;
+dz=100*dp; %MHA change: change back to normal units
+% dz=dp;
 
 % delete negative pressures
 i=find(p>=0);

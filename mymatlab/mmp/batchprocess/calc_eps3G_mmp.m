@@ -100,7 +100,7 @@ if drop_flag==1 | drop_flag==2
 		      % select rawdata and take spectrum
             data=rawdata(start_sample:stop_sample);
             data = data-mean(data); % revised for EPIC01
-		      P=psd(data,eps_step,FS_hf);
+		      warning off; P=psd(data,eps_step,FS_hf); warning on;
 		      P=P(2:length(P))'/(0.5*FS_hf); % delete f=0;, normalize to preserve variance
 		      %
 		      % convert frequency to wavenumber
