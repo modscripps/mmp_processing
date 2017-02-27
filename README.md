@@ -31,3 +31,8 @@ with the MMP sensors are updated.
 cal file. Shear probes are under "Af" by serial number. When a new sensor 
 is calibrated, a new file should be created to store the calibration 
 coefficients.
+
+On a new cruise, you will need to do some setup. First, make a directory for
+the cruise and move "cruise_init_mmp.m" into that directory. Set the range
+of drops for the cruise and run to set up the directory structure.
+Then, open the file database/cruises and add the new cruise and drop range.
