@@ -1,4 +1,4 @@
-figure(91); clf; maxfigure;
+figure(91); clf; %maxfigure;
 
 ha(1) = subplot(1,4,1:2);
 
@@ -26,7 +26,7 @@ print('-dpng', fullfile(procdata,cruise,'figs','pdf',[num2str(drop) '_eps_chi_n2
 
 % dTdz = abs(nonmoninterp1(pout/100,dthetadz,pr_chi));
 
-figure(41); clf; tallfigure
+figure(41); clf; %tallfigure
 scatter(epsilon(:),eps_chi(:),20,repmat(log10(dthetadz),2,1),'filled');hold on;
 plot([10^-12 10^-3],[10^-12 10^-3],'k--')
 xlabel('\epsilon'); ylabel('\epsilon_{\chi}'); 

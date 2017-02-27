@@ -1,0 +1,38 @@
+
+function h=wbo_shot_trf(shotno,k);
+% wbo_shot_trf
+%   Usage: h=wbo_shot_trf(shot,k);
+%      shotno is an integer giving the shot number
+%      k is a vector of wavenumbers
+%      h is a complex vector with the transfer function evaluated at k
+%   Function: Evaluate the transfer functions of wbo conductivity cells in Gregg & Hess,
+%      J. Atmos. Ocean Tech., 2, 304--313, 1985.
+
+load wbo_shots
+
+% find the row number for the shot specified
+r=find(shot==shotno);
+
+% limit k to kmax, the maximum wavenumber over which the poly were fitted
+ik=find(k>kmax(r));
+k(ik)=NaN*ones(size(ik));
+
+% calculate the variable at which the Legendre polynomials are evaluated
+x=(2*k/kmax(r))-1;
+
+% evaluate the legendre polynomials
+len_x=length(x);
+P=zeros(7,len_x);
+P(1,:)=legendre(0,x);
+P(2,:)=legendre(1,x);
+P(3,:)=legendre(2,x);
+P(4,:)=legendre(3,x);
+P(5,:)=legendre(4,x);
+P(6,:)=legendre(5,x);
+P(7,:)=legendre(6,x);
+
+
+% form Sum = an * Pn for each member of x
+Sum = a(r,:) * P;
+
+h=exp(2*pi*i*l(r)*k) .* Sum;

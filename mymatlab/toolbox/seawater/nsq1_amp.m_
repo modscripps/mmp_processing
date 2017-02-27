@@ -1,0 +1,46 @@
+%function [pr_nsq,nsq]=nsq1_amp(s,t,p,dp);
+
+dp=.005;
+
+G=9.80665;
+
+% check that dp>0;
+if dp<=0
+	error('dp must be > 0');
+end
+
+igood=find(~isnan(s)==1 & ~isnan(t)==1);
+%igaps=find(diff(igood)>1);
+s=s(igood); t=t(igood); p=p(igood);
+
+% low pass input data to match dp
+dp_data=diff(p);
+%dp_med=median(dp_data);
+dp_med=median(dp_data);
+[b,a]=butter(8,2*dp_med/dp);
+t=filtfilt(b,a,t);
+s=filtfilt(b,a,s);
+
+% set up output vectors and 
+i=find(p>p(1)+dp/2 & p<p(length(p))-dp/2);
+nout=size(i);
+nsq=NaN*ones(nout,1);
+pr_nsq=p(i);
+
+%
+for k=1:nout
+	pri=pr_nsq(k);
+	ipw=find(p>pri-dp/2 & p<pri+dp/2);
+
+	iu=ipw(1); pu=p(iu); su=s(iu); tu=t(iu);
+	%ptu=potempref(su,tu,pu,pri);
+	ptu=t(iu);
+	rhou=density(su,ptu,pri);
+
+	il=ipw(length(ipw)); pl=p(il); sl=s(il); tl=t(il);
+	%ptl=potempref(sl,tl,pl,pri);
+	ptl=t(il);
+	rhol=density(sl,ptl,pri);
+
+	nsq(k)=G^2*(rhou - rhol) / (1e6 * (pu - pl));
+end
