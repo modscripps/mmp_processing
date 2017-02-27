@@ -1,0 +1,47 @@
+% wbot_invert_trf
+
+tshot=900;
+w=0.26;
+
+NFPTS=100;
+NFITPTS=10;
+FS=25;
+
+% set up wavenumber and frequency vectors
+omega=linspace(0,pi,NFPTS);
+f=omega*(FS/2)/pi;
+k=f/w;
+
+% calculate wbot amplitude and phase response
+ht=wbo_shot_trf(tshot,k);
+pht=angle(ht);
+ht=abs(ht);
+h=ht .* exp(i*pht);
+
+% invert frequency response to obtain filter coefficients
+[b,a]=invfreqz(h,omega,NFITPTS,NFITPTS);
+
+% invert these to frequency
+[h1,f1]=freqz(b,a,NFPTS,FS);
+h1sq=abs(h1).^2;
+p1=(180/pi)*angle(h1);
+
+clf
+
+subplot(2,1,1)
+loglog(f1,h1sq,'--')
+hold on
+loglog(f,ht.^2)
+axis([.1 12.5 .001 10])
+ylabel('Hsq')
+str=['wbot shot ' int2str(tshot) ' inverted to ' int2str(NFITPTS) '-point digital filter'];
+title(str)
+text(.2,.05,'shot: heavy line')
+text(.2,.001,'inversion: dashed')
+
+subplot(2,1,2)
+semilogx(f1,p1,'--')
+hold on
+semilogx(f,(180/pi)*pht)
+axis([.1 12.5 -200 200])
+xlabel('f / Hz'), ylabel('phase / degrees')
