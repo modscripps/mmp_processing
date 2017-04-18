@@ -16,6 +16,10 @@
 if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
    chi_fil = [procdata filesep cruise filesep 'chi' filesep 'chi' num2str(drop) '.mat'];
    chi=[];
+   MLEchi = [];
+   PODchi = [];
+   CHAchi = [];
+   
    data_flag=1; % Set to 0 when further chi processing impossible or unnecessary
    %
    % When drop_flag=2, if chi-file already exists, retrieve data and stop
@@ -33,6 +37,9 @@ if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
     %
     % Set up data arrays
     chi=NaN*ones(nchi,2); kcth=NaN*ones(nchi,2);
+    MLEchi=NaN*ones(nchi,2)
+    PODchi=NaN*ones(nchi,2)
+    CHAchi=NaN*ones(nchi,2)
     eps_chi = chi;
     % arrays for saving temp grad spectra
     if strcmp(save_chi_spec,'yes')
@@ -167,6 +174,39 @@ if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
             Ptempk = Emp_Corr_fac * (Pth*speed)./h_th_total';
             Ptgradk=(2*pi*k).^2 .* Ptempk ;
             chi(j,i)=6*ktemp(j)*dk.*sum(Ptgradk(1:fc_index));
+            %disp(['MMP chi = ' num2str(chi(j,i))])
+            
+            % Get MLE chi
+            k_noise_cutoff = k(fc_index);
+            path('~/Documents/MATLAB/MLE',path)
+            MLEout = vmp_chi_MLE(k', Ptgradk', k_noise_cutoff, kvis(j), ktemp(j));
+            %disp(['MLE chi = ' num2str(MLEout.chi)]);
+            MLEchi(j,i) = MLEout.chi;
+            
+            % Get chipod chi
+            path('~/Documents/MATLAB/chipod',path)
+            alpha = sw_alpha(s(j),t(j),pr_chi(j)*100);
+            if j ~= nchi
+                dTdz = (t(j+1)-t(j))/((pr_chi(j+1)-pr_chi(j))*100);
+            else
+                dTdz = (t(j-1)-t(j))/((pr_chi(j-1)-pr_chi(j))*100);
+            end
+            doplots = 0;
+            eps_start = 1e-9;
+            [PODout.chi,epsil,PODout.k,PODout.spec,PODout.k_kraich,...
+                PODout.spec_kraich,PODout.stats]=...
+                get_chipod_chi(k,Ptgradk,w(j),kvis(j),ktemp(j),dTdz,alpha,...
+                doplots, eps_start);
+            %disp(['chipod chi = ' num2str(PODout.chi(1))])
+            PODchi(j,i) = PODout.chi(1);
+            
+            % Get chameleon chi
+            path('~/Documents/MATLAB/chameleon',path)
+            [CHAout.chi,CHAout.k,CHAout.spec,...
+                CHAout.k_batch,CHAout.spec_batch]= ...
+            calc_chi(k, Ptgradk,w(j),epsilon(j,i),kvis(j),ktemp(j), k_noise_cutoff);
+            %disp(['chameleon chi = ' num2str(CHAout.chi)])
+            CHAchi(j,i) = CHAout.chi;
             
             % compute epsilon from chi
 %             idn2 = findnearest(pr_scan(cntr_scan(j)),pout./100,'lt');
@@ -197,7 +237,8 @@ if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
     
     make_chi_eps_n2_dTdz_figure
     
-    save(chi_fil, 'pr_chi', 'kcth', 'chi', 'w_eps','t','s','tlch','eps_step','eps_chi','dthetadz','n2');
+    save(chi_fil, 'pr_chi', 'kcth', 'chi', 'w_eps','t','s','tlch',...
+        'eps_step','eps_chi','dthetadz','n2','MLEchi','PODchi','CHAchi');
     %
   end %AAAAAAAA if data_flag==1 (chis computed) AAAAAAAA
   %

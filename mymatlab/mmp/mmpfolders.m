@@ -7,13 +7,13 @@
 
 global harddrive
 
-harddrive	=	'/Users/mmp/Documents/MATLAB/mmp_processing/';
+harddrive	=	'/Users/ecfine/Documents/MATLAB/mmp_processing/';
 FSP		=	'/';
 filesep		=	FSP';
 rawmmp		= fullfile(harddrive,'data');
 procdata	= fullfile(harddrive);
 mmpdatabase	= fullfile(harddrive,'database');
 mmpconfig	= fullfile(harddrive,'database','config');
-matlabdisk	= '/Users/mmp/';
-mymatlabdisk	= '/Users/mmp/Documents/MATLAB/mmp_processing/mymatlab';
+matlabdisk	= '/Users/ecfine/';
+mymatlabdisk	= '/Users/ecfine/Documents/MATLAB/mmp_processing/mymatlab';
 cd(fullfile(mymatlabdisk,'mmp','batchprocess'))
