@@ -37,9 +37,9 @@ if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
     %
     % Set up data arrays
     chi=NaN*ones(nchi,2); kcth=NaN*ones(nchi,2);
-    MLEchi=NaN*ones(nchi,2)
-    PODchi=NaN*ones(nchi,2)
-    CHAchi=NaN*ones(nchi,2)
+    MLEchi=NaN*ones(nchi,2);
+    PODchi=NaN*ones(nchi,2);
+    CHAchi=NaN*ones(nchi,2);
     eps_chi = chi;
     % arrays for saving temp grad spectra
     if strcmp(save_chi_spec,'yes')
@@ -178,13 +178,12 @@ if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
             
             % Get MLE chi
             k_noise_cutoff = k(fc_index);
-            path('~/Documents/MATLAB/MLE',path)
+            
             MLEout = vmp_chi_MLE(k', Ptgradk', k_noise_cutoff, kvis(j), ktemp(j));
             %disp(['MLE chi = ' num2str(MLEout.chi)]);
             MLEchi(j,i) = MLEout.chi;
             
             % Get chipod chi
-            path('~/Documents/MATLAB/chipod',path)
             alpha = sw_alpha(s(j),t(j),pr_chi(j)*100);
             if j ~= nchi
                 dTdz = (t(j+1)-t(j))/((pr_chi(j+1)-pr_chi(j))*100);
@@ -201,7 +200,6 @@ if (drop_flag==1 | drop_flag==2) & ~isempty(tlch)
             PODchi(j,i) = PODout.chi(1);
             
             % Get chameleon chi
-            path('~/Documents/MATLAB/chameleon',path)
             [CHAout.chi,CHAout.k,CHAout.spec,...
                 CHAout.k_batch,CHAout.spec_batch]= ...
             calc_chi(k, Ptgradk,w(j),epsilon(j,i),kvis(j),ktemp(j), k_noise_cutoff);
