@@ -5,8 +5,8 @@ cruise = 'SODA18';
 year = 2018;
 
 %% Change paths here!
-path_local  = '/Users/mmp/Documents/MATLAB/mmp/SODA/gridded/';
-work_dir  = '/Users/mmp/Documents/MATLAB/mmp/mymatlab/mmp/batchprocess';
+path_local  = '/Users/ecfine/Documents/MATLAB/mmp_processing';
+work_dir  = '/Users/ecfine/Documents/MATLAB/mmp_processing/mymatlab/mmp/batchprocess';
 %path_server = '/Volumes/public/Cruises/SKQ201511S/data/mmp_data/processed/gridded/';
 
 load(fullfile(procdata,cruise,'mmplog'))
@@ -30,7 +30,7 @@ if exist([path_local 'MMPgrid.mat'])
     cc = length(MMP.yday):length(ig); 
     toinit = nan(length(MMP.p), length(cc));
 else
-    cc = 1:length(mmplog(:,1));
+    cc = 1:length(droplist);
 end
 % a for loop.
 for c = cc %length(mmplog(:,1))
@@ -39,13 +39,24 @@ for c = cc %length(mmplog(:,1))
     disp([num2str(drop) ', index ' num2str(c)])
     %DisplayProgress(drop,1)
     % get dissipation (epsilon)
-    [epsilon, pr_eps, w_eps]            = get_epsilon2_mmp(drop);
+    try
+        [epsilon, pr_eps, w_eps]            = get_epsilon2_mmp(drop);
+    catch
+        epsilon = nan;
+        pr_eps = nan;
+        w_eps = nan;
+    end
     % get potential temperature, salinity, and other things...
     [pr_thetasd,t,theta,salinity,sgth]  = get_thetasd2_mmp(drop,'t','th','s','sgth',0);
     % change the units of salinity
     salinity                            = salinity*1000;
     % get temperature variance (chi)
-    [chi, pr_chi]                       = get_chi1_mmp(drop);
+    try
+        [chi, pr_chi]                       = get_chi1_mmp(drop);
+    catch 
+        chi = nan;
+        pr_chi = nan;
+    end
     % get dissolved oxygen
     dox                                 = get_dox_mmp(drop);
     % set empty data points to NaN
@@ -98,7 +109,7 @@ MMP.dnum        = MMP.yday + datenum(year,1,1,0,0,0);
 % save mmp grid
 disp('saving data...')
 cd(path_local)
-save MMPgrid MMP
+save MMPgridSODATEST MMP
 cd(work_dir)
 % 
 % %% copy mmp data to server
