@@ -9,7 +9,7 @@ if drop_flag==1 | drop_flag==2
 
    % load current mmplog, check year,yday columns for drop
 
-   load([procdata filesep cruise filesep 'mmplog'])
+   load([procdata cruise filesep 'mmplog'])
 
    irow=find(mmplog(:,1)==drop);
 

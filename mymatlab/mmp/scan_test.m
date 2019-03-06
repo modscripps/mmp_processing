@@ -4,10 +4,11 @@ PLOTS='n';
 
 mmpfolders
 global FSP
-
+ch = 'sc';
+drop = 19707;
 scan_err=[];
 
-for drop=2400:2588
+%for drop=2400:2588
   sc=read_rawdata_mmp(ch,drop);
 	dsc=diff(sc);
 	if strcmp(PLOTS,'y')
@@ -23,5 +24,7 @@ for drop=2400:2588
 		%disp(msg)
 		%disp(int2str(diff(err)))
 		scan_err=[scan_err drop];
+    else
+        disp('no scan error! woohoo!')
 	end
-end
+%end

@@ -4,7 +4,6 @@ mmpfolders
 cruise='ArcticMix15';
 %load([procdata filesep cruise filesep 'mmplog'])
 
-%griddata='/Users/mmp/MATLAB/SharedProjects/WashingtonWaves/data/proc_mmp/';
 griddata = '/Users/ecfine/Documents/MATLAB/mmp_processing/ArcticMix15/gridded/';
 load(fullfile(procdata,cruise,'mmplog'))
 %mmplog=load(fullfile(procdata,cruise,'mmplog'));
@@ -13,7 +12,7 @@ load(fullfile(procdata,cruise,'mmplog'))
 
 
 
-dz=0.25; % revised by Effie for Arctic cruise
+dz=1; % revised 9/13/18 to look at larger scale statistics
 zmax=300;
 
 zgrid=0:dz:zmax;
@@ -56,9 +55,12 @@ end
 %Final error checking
 
 %Now put NaN's in where the dox is negative
-ind1=find(MMP.dox(100,:)<0);
-MMP.dox(:,ind1)=NaN;
-
+try
+    ind1=find(MMP.dox(100,:)<0);
+    MMP.dox(:,ind1)=NaN;
+catch
+    disp('dox failed')
+end
 %subtract 1000 from sgth
 MMP.sgth=MMP.sgth-1000;
 
@@ -76,4 +78,4 @@ MMP.drop=mmplog(ig,1)';
 MMP.dnum = MMP.yday + datenum(2015,1,1,0,0,0);
 
 cd(griddata)
-save MMPgridMLE MMP
+save MMPgrid1m MMP
