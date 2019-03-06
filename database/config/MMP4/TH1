@@ -3,4 +3,7 @@ firstdrop lastdrop sensorid electronicsid filter fc scanpos
 19899 20999 104 t1_1 bessel4 100 col4
 21000 21030 A2 t1_1 bessel4 100 col4
 21031 21123 6 t1_1 bessel4 100 col4
-21124 29999 12 t1_1 bessel4 100 col4
+21124 21441 12 t1_1 bessel4 100 col4
+21505 21546 96 t1_1 bessel4 100 col4
+21547 21809 96 t1_1 bessel4 100 col4
+21809 99999 6 t1_1 bessel4 100 col4

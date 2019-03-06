@@ -72,4 +72,6 @@ firstdrop lastdrop sensorid electronicsid filter fc scanpos
 21000 21114 249 af2_1 cheby6 100 col7
 21115 21129 284 af2_1 cheby6 100 col7
 21130 21130 283 af2_1 cheby6 100 col7
-21131 99999 188 af2_1 cheby6 100 col7
+21131 21552 188 af2_1 cheby6 100 col7
+21553 21557 284 af2_1 cheby6 100 col7
+21558 99999 132	af2_1 cheby6 100 col7

@@ -107,39 +107,41 @@ while MLE_successful && (chi > 1.2*chi_prev || chi_prev > 1.2*chi) && count <= 1
     % polynomial fit goes to zero.
     % Use 7 points on either side of the maximum that has been identified so
     % far.
-    Y = C_fine(I-7:I+7);
-    X = loopover(I-7:I+7);
-    [P,~,mu] = polyfit(X,Y,5);
-    % take the derivative of the 5th order polynomial
-    der = polyder(P);
-    
-    % Calculate the derivative over many points (remember that the polyfit was
-    % on a scaled x). The maximum likelihood will occur where the the slope is
-    % closest, in absolute value, to zero.
-    manypoints = loopover(I-7):0.01:loopover(I+7);
-    manypoints_sc = (manypoints - mu(1))./mu(2);
-    pp = polyval(der,manypoints_sc);
-    [~,max_spot] = min(abs(pp));
-    best_kB = manypoints(max_spot);
-    S_batchelor = vmp_batchelor_spectra(best_kB,k,chi,kappa);  %,q);
-    
-    % Account for the missing variance in the chi calculation
-    % Batchelor wavenumber in cpm
-    kB_cpm = best_kB/(2*pi);
-    missing.low = 6*kappa*vmp_integral(S_batchelor,k,0,k(2));
-    del_k = mean(diff(k));
-    if kB_cpm >= k_noise_cutoff + del_k
-        ktmp = (k(end-1):del_k:kB_cpm)';
-        S_tmp = vmp_batchelor_spectra(best_kB,ktmp,chi,kappa);
-        missing.high = 6*kappa*vmp_integral(S_tmp,ktmp,k_noise_cutoff,kB_cpm);
-    else
-        missing.high = 0;
-    end
-    chi_prev = chi;
-    chi = missing.low + chi + missing.high;
-    
-    count = count + 1;
-    MLE_successful = 1;
+    try
+        Y = C_fine(I-7:I+7);
+        X = loopover(I-7:I+7);
+        [P,~,mu] = polyfit(X,Y,5);
+        % take the derivative of the 5th order polynomial
+        der = polyder(P);
+
+        % Calculate the derivative over many points (remember that the polyfit was
+        % on a scaled x). The maximum likelihood will occur where the the slope is
+        % closest, in absolute value, to zero.
+        manypoints = loopover(I-7):0.01:loopover(I+7);
+        manypoints_sc = (manypoints - mu(1))./mu(2);
+        pp = polyval(der,manypoints_sc);
+        [~,max_spot] = min(abs(pp));
+        best_kB = manypoints(max_spot);
+        S_batchelor = vmp_batchelor_spectra(best_kB,k,chi,kappa);  %,q);
+
+        % Account for the missing variance in the chi calculation
+        % Batchelor wavenumber in cpm
+        kB_cpm = best_kB/(2*pi);
+        missing.low = 6*kappa*vmp_integral(S_batchelor,k,0,k(2));
+        del_k = mean(diff(k));
+        if kB_cpm >= k_noise_cutoff + del_k
+            ktmp = (k(end-1):del_k:kB_cpm)';
+            S_tmp = vmp_batchelor_spectra(best_kB,ktmp,chi,kappa);
+            missing.high = 6*kappa*vmp_integral(S_tmp,ktmp,k_noise_cutoff,kB_cpm);
+        else
+            missing.high = 0;
+        end
+        chi_prev = chi;
+        chi = missing.low + chi + missing.high;
+
+        count = count + 1;
+        MLE_successful = 1;
+    end         
 end
 
 if  MLE_successful
